@@ -1,4 +1,4 @@
-export const initialMessages = [
+module.exports.initialMessages = [
 
 'Hello there!',
 'How are you?',

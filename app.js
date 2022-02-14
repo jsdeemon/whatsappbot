@@ -7,7 +7,7 @@ const client = new Client();
 // messages import
 // const initialMessages = require('./messages/initialMessage')
 // // import functions
-// const randomIntFromInterval = require('./utils/random')
+const randomIntFromInterval = require('./utils/random')
 
 const initialMessages = [
 
@@ -23,9 +23,9 @@ const initialMessages = [
   
   ]
 
-  function randomIntFromInterval(min, max) { // min and max included 
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
+  // function randomIntFromInterval(min, max) { // min and max included 
+  //   return Math.floor(Math.random() * (max - min + 1) + min)
+  // }
 
 
 
@@ -80,48 +80,11 @@ try {
 		message.reply('pong');
 	} else {
         let delay = randomIntFromInterval(1000, 5500)
-        setTimeout(message.reply(replyMsg), delay)
+        setTimeout(
+          function() {
+            message.reply(replyMsg)
+          }, delay)
     }
 });
 
 
-/* 
-
-Message {
-  mediaKey: undefined,
-  id: {
-    fromMe: false,
-    remote: '5219842382115@c.us',
-    id: '3A60A5DA0DC0D88E4FAC',
-    _serialized: 'false_5219842382115@c.us_3A60A5DA0DC0D88E4FAC'
-  },
-  ack: 0,
-  hasMedia: false,
-  body: 'I thought it was you \nHaha',
-  type: 'chat',
-  timestamp: 1644762710,
-  from: '5219842382115@c.us',
-  to: '998935297455@c.us',
-  author: undefined,
-  deviceType: 'ios',
-  isForwarded: false,
-  forwardingScore: 0,
-  isStatus: false,
-  isStarred: false,
-  broadcast: false,
-  fromMe: false,
-  hasQuotedMsg: false,
-  location: undefined,
-  vCards: [],
-  inviteV4: undefined,
-  mentionedIds: [],
-  orderId: undefined,
-  token: undefined,
-  isGif: false,
-  isEphemeral: false,
-  links: []
-}
-
-
-
-*/
